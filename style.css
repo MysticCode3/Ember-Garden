@@ -1,0 +1,202 @@
+/* Colors follow the game's palette (lib/config/palette.dart). */
+:root {
+  color-scheme: dark;
+  --bg: #151d20;
+  --bg-deep: #111819;
+  --card: #1a2427;
+  --card-border: #26343a;
+  --stone: #34454a;
+  --text: #ede4d3;
+  --muted: #8a9a9b;
+  --ember: #e8b06a;
+  --ember-soft: #f6ddb4;
+  --spring: #8cc4ba;
+  --intruder: #c97b63;
+  --radius: 14px;
+  --max: 760px;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background:
+    radial-gradient(circle at 50% -10%, rgba(232, 176, 106, 0.10), transparent 55%),
+    var(--bg);
+  background-color: var(--bg);
+  color: var(--text);
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 17px;
+  line-height: 1.65;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+}
+
+a { color: var(--ember); text-underline-offset: 3px; }
+a:hover { color: var(--ember-soft); }
+
+.wrap {
+  width: 100%;
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 0 20px;
+}
+
+/* Header */
+.site-header {
+  border-bottom: 1px solid var(--card-border);
+}
+.site-header .wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-top: 14px;
+  padding-bottom: 14px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  color: var(--text);
+  text-decoration: none;
+  font-weight: 700;
+  letter-spacing: 0.02em;
+  white-space: nowrap;
+}
+.brand img { width: 32px; height: 32px; border-radius: 8px; }
+.site-header nav { display: flex; gap: 18px; font-size: 15px; }
+@media (max-width: 420px) {
+  .site-header nav { gap: 12px; font-size: 14px; }
+}
+.site-header nav a { color: var(--muted); text-decoration: none; }
+.site-header nav a:hover,
+.site-header nav a[aria-current="page"] { color: var(--text); }
+
+main { flex: 1; }
+
+/* Hero */
+.hero {
+  text-align: center;
+  padding: 64px 0 40px;
+}
+.hero-icon {
+  width: 132px;
+  height: 132px;
+  border-radius: 30px;
+  box-shadow: 0 0 0 1px var(--card-border), 0 18px 60px rgba(232, 176, 106, 0.18);
+}
+.hero h1 {
+  font-size: clamp(2.2rem, 7vw, 3.2rem);
+  line-height: 1.1;
+  margin: 28px 0 10px;
+  letter-spacing: 0.01em;
+}
+.tagline {
+  color: var(--muted);
+  font-size: 1.15rem;
+  max-width: 34em;
+  margin: 0 auto 28px;
+}
+
+.button {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 12px 22px;
+  border-radius: 999px;
+  background: var(--ember);
+  color: #1c2629;
+  font-weight: 700;
+  text-decoration: none;
+}
+.button:hover { background: var(--ember-soft); color: #1c2629; }
+.button.is-soon {
+  background: transparent;
+  color: var(--muted);
+  border: 1px dashed var(--stone);
+  cursor: default;
+}
+
+/* Feature cards */
+.features {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+  gap: 14px;
+  padding: 24px 0 8px;
+}
+.card {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: var(--radius);
+  padding: 20px 20px 18px;
+}
+.card h2 {
+  font-size: 1.05rem;
+  margin: 0 0 6px;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+.card p { margin: 0; color: var(--muted); font-size: 0.97rem; }
+.dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  flex: none;
+}
+
+.section { padding: 36px 0; }
+.section h2 { font-size: 1.35rem; margin: 0 0 10px; }
+.section p { margin: 0 0 12px; }
+.muted { color: var(--muted); }
+
+/* Policy page */
+.doc { padding-top: 48px; padding-bottom: 24px; }
+.doc h1 { font-size: clamp(1.9rem, 6vw, 2.5rem); line-height: 1.15; margin: 0 0 6px; }
+.doc .meta { color: var(--muted); margin: 0 0 28px; }
+.doc h2 {
+  font-size: 1.2rem;
+  margin: 36px 0 8px;
+  padding-top: 20px;
+  border-top: 1px solid var(--card-border);
+}
+.doc ul { padding-left: 1.3em; }
+.doc li { margin: 6px 0; }
+.summary {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-left: 3px solid var(--spring);
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  margin-bottom: 8px;
+}
+.summary p { margin: 0; }
+code {
+  background: var(--card);
+  border: 1px solid var(--card-border);
+  border-radius: 6px;
+  padding: 1px 6px;
+  font-size: 0.9em;
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--card-border);
+  margin-top: 40px;
+  color: var(--muted);
+  font-size: 14px;
+}
+.site-footer .wrap {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  gap: 8px 20px;
+  padding-top: 20px;
+  padding-bottom: 28px;
+}
+.site-footer a { color: var(--muted); }
+.site-footer a:hover { color: var(--text); }
